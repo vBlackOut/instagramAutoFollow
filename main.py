@@ -15,6 +15,7 @@ if __name__ == "__main__":
     api.login()
     time.sleep(2)
 
+
     # user_id = '1461295173'
     if hasattr(api, 'username_id'):
         user_id = api.username_id
@@ -33,15 +34,19 @@ if __name__ == "__main__":
 
     # Alternatively, use the code below
     # (check evaluation.evaluate_user_followers for further details).
-
+    print("check followers...")
     # check followers
     followers = api.getTotalFollowers(user_id)
+    print("you have {} followers".format(len(followers)))
     time.sleep(2)
 
     # check followings
     followings = api.getTotalFollowings(user_id)
+    print("you have {} followings".format(len(followers)))
     time.sleep(2)
 
+
+    print("determining follow/unfollow user...")
     suivis = set()
     for users in followers:
         suivis.add(tuple(users.iteritems()))
